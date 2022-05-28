@@ -63,28 +63,41 @@ public class FragmentReport extends Fragment {
         }
         spinnerYear.setAdapter(new ArrayAdapter(getActivity(), R.layout.item_text_spinner, years));
 
+        List<UserExpenseStatistic> list=new ArrayList<>();
+        list.add(new UserExpenseStatistic(1,1000,1000));
+        list.add(new UserExpenseStatistic(2,1000,100));
+        list.add(new UserExpenseStatistic(3,500,500));
+        list.add(new UserExpenseStatistic(4,200,200));
+        list.add(new UserExpenseStatistic(5,400,400));
+        list.add(new UserExpenseStatistic(6,9800,9800));
+        list.add(new UserExpenseStatistic(7,12000,12000));
+        list.add(new UserExpenseStatistic(8,1222,1222));
+        list.add(new UserExpenseStatistic(9,321,321));
+        list.add(new UserExpenseStatistic(10,345,345));
+        list.add(new UserExpenseStatistic(11,444,444));
+        list.add(new UserExpenseStatistic(12,222,222));
 
-
+        updateBarChartUI(list, year);
     }
 
-    private void callAPIGetMonthlyStats(int year) {
-        APIUtils.getApiServiceInterface().getMonthlyExpenseStatisticsOfUser(year)
-                .enqueue(new Callback<List<UserExpenseStatistic>>() {
-            @Override
-            public void onResponse(Call<List<UserExpenseStatistic>> call, Response<List<UserExpenseStatistic>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<UserExpenseStatistic> statisticList = response.body();
-
-                    updateBarChartUI(statisticList, year);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<UserExpenseStatistic>> call, Throwable t) {
-
-            }
-        });
-    }
+//    private void callAPIGetMonthlyStats(int year) {
+//        APIUtils.getApiServiceInterface().getMonthlyExpenseStatisticsOfUser(year)
+//                .enqueue(new Callback<List<UserExpenseStatistic>>() {
+//            @Override
+//            public void onResponse(Call<List<UserExpenseStatistic>> call, Response<List<UserExpenseStatistic>> response) {
+//                if (response.isSuccessful() && response.body() != null) {
+//                    List<UserExpenseStatistic> statisticList = response.body();
+//
+//                    updateBarChartUI(statisticList, year);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<UserExpenseStatistic>> call, Throwable t) {
+//
+//            }
+//        });
+//    }
 
     private void updateBarChartUI(List<UserExpenseStatistic> expenseStatisticList, int year) {
         textViewMonthlyExpenseStat.setText("User's Monthly Expense " + year);

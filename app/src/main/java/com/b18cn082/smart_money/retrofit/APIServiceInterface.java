@@ -7,8 +7,11 @@ import com.b18cn082.smart_money.model.PlanResponse;
 import com.b18cn082.smart_money.model.Question;
 import com.b18cn082.smart_money.model.QuestionResponse;
 import com.b18cn082.smart_money.model.RegisterResponse;
+import com.b18cn082.smart_money.model.Spend;
 import com.b18cn082.smart_money.model.SpendCreateRequest;
 import com.b18cn082.smart_money.model.SpendCreateResponse;
+import com.b18cn082.smart_money.model.SpendReportRequest;
+import com.b18cn082.smart_money.model.SpendReportResponse;
 import com.b18cn082.smart_money.model.User;
 import com.b18cn082.smart_money.model.UserExpenseStatistic;
 import com.b18cn082.smart_money.model.UserRegistation;
@@ -46,10 +49,8 @@ public interface APIServiceInterface {
       @POST("spend/add")
       Call<SpendCreateResponse> createSpend(@Body SpendCreateRequest spendCreateRequest);
 
-      @GET("statistics/user-expense")
-      Call<List<UserExpenseStatistic>> getMonthlyExpenseStatisticsOfUser(
-              @Query("year") int year
-      );
+      @POST("spend/report")
+      Call<SpendReportResponse> getReport(@Body SpendReportRequest spendReportRequest);
 
 //    @GET("category")
 //    Call<List<Category>> getAllCategories();
