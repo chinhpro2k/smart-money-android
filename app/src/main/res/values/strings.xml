@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">smart-money</string>
+    <string-array name="category">
+        <item>Chi tiêu nội trợ</item>
+        <item>Chi tiêu học tập</item>
+        <item>Chi tiêu đi lại</item>
+        <item>Chi tiêu viện phí</item>
+    </string-array>
+</resources>

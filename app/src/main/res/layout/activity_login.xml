@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:background="@drawable/background"
+    tools:context="com.b18cn082.smart_money.LoginActivity"
+    >
+    <ImageView
+        style="@style/parent"
+        android:background="@drawable/ic_login_bk"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng nhập"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="32dp"/>
+    <EditText
+        android:id="@+id/email_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Email"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:background="@drawable/ed_bakground"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/password_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:textSize="20dp"
+        android:background="@drawable/ed_bakground"
+        android:padding="10dp"
+        android:textColorHint="@android:color/black"
+        android:textColor="@android:color/black" />
+    <Button
+        android:id="@+id/login_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng nhập"
+        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/white"
+        android:layout_margin="10dp"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:background="@drawable/ed_bakground"/>
+    <TextView
+        android:id="@+id/signup_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:text="Bạn chưa có tài khoản? Bấm để đăng ký"
+        android:textColor="@android:color/white"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/forgetpass_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:text="Quên mật khẩu ?"
+        android:textColor="@android:color/white"
+        android:gravity="center" />
+</LinearLayout>

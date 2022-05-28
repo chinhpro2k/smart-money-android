@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_suggest"
+        android:icon="@drawable/ic_baseline_assistant_24"
+        android:title="Suggest"/>
+    <item android:id="@+id/menu_report"
+        android:icon="@drawable/ic_baseline_show_chart_24"
+        android:title="Report"/>
+    <item android:id="@+id/menu_create_plan"
+        android:icon="@drawable/ic_baseline_airplane_ticket_24"
+        android:title="Create plan" />
+    <item android:id="@+id/menu_personal"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile"/>
+</menu>
