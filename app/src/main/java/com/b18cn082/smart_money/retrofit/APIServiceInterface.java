@@ -27,7 +27,7 @@ import retrofit2.http.Query;
 
 public interface APIServiceInterface {
 
-      @POST("memebers/register")
+      @POST("members/register")
       Call<RegisterResponse> register(@Body User user);
 
       @POST("members/login")
