@@ -52,18 +52,4 @@ public interface APIServiceInterface {
       @POST("spend/report")
       Call<SpendReportResponse> getReport(@Body SpendReportRequest spendReportRequest);
 
-//    @GET("category")
-//    Call<List<Category>> getAllCategories();
-//
-//    @GET("article/categoryId")
-//    Call<List<Article>> getArticleBySlug(@Query("id") String id);
-//
-//    @GET("articles")
-//    Call<List<Article>> getAllArticles();
-//
-//    @GET("article/id/{id}")
-//    Call<Article> getArticleById(@Path("id") String id);
-//
-//    @GET("article/search")
-//    Call<List<Article>> getArticlesByKey(@Query("title") String key);
 }

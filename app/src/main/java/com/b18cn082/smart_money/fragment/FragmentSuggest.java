@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.b18cn082.smart_money.PlanList;
 import com.b18cn082.smart_money.R;
@@ -32,6 +33,7 @@ public class FragmentSuggest extends Fragment {
     private RecyclerView recyclerView;
     private SuggestAdapter suggestAdapter;
     private List<Plan> planList;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Nullable
     @Override
@@ -45,6 +47,7 @@ public class FragmentSuggest extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recyclerViewSuggest);
         suggestAdapter = new SuggestAdapter(new ArrayList<>());
+        swipeRefreshLayout = view.findViewById(R.id.suggest_layout);
         suggestAdapter.setItemClickListener(question -> {
             //to do st when click btn select in adapter
             Toast.makeText(getActivity(),"Chọn thành công",Toast.LENGTH_LONG).show();
@@ -69,5 +72,29 @@ public class FragmentSuggest extends Fragment {
 
                     }
                 });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                APIUtils.getApiServiceInterface().getAllPlan()
+                        .enqueue(new Callback<PlanResponse>() {
+                            @Override
+                            public void onResponse(Call<PlanResponse> call, Response<PlanResponse> response) {
+                                if (response.isSuccessful() && response.body()!=null){
+                                    PlanResponse planResponse =response.body();
+                                    planList=planResponse.getListPlan();
+                                    PlanList.planList=planList;
+                                    suggestAdapter.setListPlan(planList);
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<PlanResponse> call, Throwable t) {
+
+                            }
+                        });
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 }
